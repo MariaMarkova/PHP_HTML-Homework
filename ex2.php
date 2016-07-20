@@ -84,6 +84,11 @@ username и криптираната парола. Направете всички възможни проверки за въведените
 <html>
 	<head>
 		<title>Task 2</title>
+		<style type="text/css">
+		
+		
+				
+		</style>
 	</head>
 	<body>
 	
