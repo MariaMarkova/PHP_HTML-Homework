@@ -25,7 +25,9 @@ username и криптираната парола. Направете всички възможни проверки за въведените
 // 		if (is_array($value) || is_object($value)) {
 // 			return false;
 // 		}
-// 		return (bool)preg_match('/[^a-z0-9]/i', trim($value));
+// 		$pattern = '/[^a-z0-9]/i';
+// 		return (bool)preg_match($pattern, trim($value, '"'));
+		
 // 	}
 	
 	$username = empty($_POST['username']) ? '' : $_POST['username'];
@@ -84,11 +86,7 @@ username и криптираната парола. Направете всички възможни проверки за въведените
 <html>
 	<head>
 		<title>Task 2</title>
-		<style type="text/css">
-		
-		
-				
-		</style>
+		<link href="assets/css/ex2.css" rel="stylesheet" type="text/css">
 	</head>
 	<body>
 	

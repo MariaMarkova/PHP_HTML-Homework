@@ -6,33 +6,52 @@
 
 	$operation = empty($_POST['operation']) ? '' : $_POST['operation'];
 	
-	$input = '';
-	$num2 = '';
+	$input1 = '';
+	$input2 = '';
+	$result = '';
 	
-	if (!empty($_POST['input1'])) {
-		$input = $_POST['input1'];
-	}
-	if (!empty($_POST['input2'])) {
-		$num2 = $_POST['input2'];
-	}
-	
-	if ($operation == '+'){
-		$result = $input + $num2;
-	}else if($operation == '-'){
-		$result = $input - $num2;
-	}else if($operation == '*'){
-		$result = $input * $num2;
-	}else if($operation == '/'){
-		if($num2 == 0){
-			$result = 'Error';
-		}else{
-			$result = $input / $num2;
+	if (isset($_POST['input1'])) {
+		$input1 = $_POST['input1'];
+		
+		if (is_numeric($input1) || $input1 == '0') {
+			$result = operation($operation, $input1, $input2);
+		}else {
+			$result = 'Input Must Be numeric.';
 		}
-	}else if($operation == '%'){
-		$result = $input % $num2;
 	}
 	
+	if (isset($_POST['input2'])) {
+		$input2 = $_POST['input2'];
+		
+		if (is_numeric($input2) || $input2 == '0') {
+			$result = operation($operation, $input1, $input2);
+		}else {
+			$result = 'Input Must Be numeric.';
+		}		
+	}
 	
+	function operation($o, $input1, $input2) {
+		if ($o == '+'){
+			return $input1 + $input2;
+		}else if($o == '-'){
+			return $input1 - $input2;
+		}else if($o == '*'){
+			return $input1 * $input2;
+		}else if($o == '/'){
+			if($input2 == 0){
+				return 'Error';
+			}else{
+				return $input1 / $input2;
+			}
+		}else if($o == '%'){
+			if($input2 == 0){
+				return 'Error';
+			}else{
+				return $input1 % $input2;
+			}			
+		}
+	}
+		
 	
 	
 ?>
@@ -77,21 +96,21 @@
 	<form action="" method="post">	
 		<div class="input">
 			<label for="input1"> A :  </label>
-			<input type="number" name="input1" id="input1"
-			value="<?= htmlentities($input, ENT_QUOTES, 'UTF-8'); ?>"/>
+			<input type="text" name="input1" id="input1"
+			value="<?= htmlentities($input1, ENT_QUOTES, 'UTF-8'); ?>"/>
 		</div>
 		
 		<div class="input">
 			<label for="input2"> B :  </label>
-			<input type="number" name="input2" id="input2"
-			value="<?= htmlentities($num2, ENT_QUOTES, 'UTF-8'); ?>"/>
+			<input type="text" name="input2" id="input2"
+			value="<?= htmlentities($input2, ENT_QUOTES, 'UTF-8'); ?>"/>
 		</div>
 	
 		<div class="input">
-			<label for="oparation"> Oparation : </label>
+			<label for="operation"> Operation : </label>
 			<select name="operation">
-				<option>+</option>
-				<option>-</option>
+				<option value="<?= $operation ?>">+</option>
+				<option value="<?= $operation ?>">-</option>
 				<option>*</option>
 				<option>/</option>
 				<option>%</option>

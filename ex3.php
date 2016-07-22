@@ -4,20 +4,20 @@
 C = ( 5 / 9 ) * (F -32). След това доразширете задачата, като добавите лист, от който потребителя да 
 сам да избере дали да конвертира от C към F или от F към C.*/
 
-	$input = '';
+	$input1 = '';
 	$result = '';
 		
 	if (isset($_POST['input1'])){
-		$input = $_POST['input1'];
+		$input1 = $_POST['input1'];
 		
-		if (is_numeric($input) || $input == '0') {
+		if (is_numeric($input1) || $input1 == '0') {
 			if ($_POST['operation'] == 1){
 					
-				$result = (($input*9)/5) + 32;
+				$result = (($input1*9)/5) + 32;
 					
 			}else if($_POST['operation'] == 2){
 					
-				$result = (5/9) * ($input - 32);
+				$result = (5/9) * ($input1 - 32);
 					
 			}
 		}else{
@@ -65,7 +65,7 @@ C = ( 5 / 9 ) * (F -32). След това доразширете задачата, като добавите лист, от 
 		<div class="input">
 			<label for="input1"> Temperature :  </label>
 			<input type="text" name="input1" id="input1"
-			value="<?= htmlentities($input, ENT_QUOTES, 'UTF-8'); ?>"/>
+			value="<?= htmlentities($input1, ENT_QUOTES, 'UTF-8'); ?>"/>
 		</div>
 		
 		<div class="input">

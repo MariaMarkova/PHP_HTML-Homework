@@ -1,0 +1,39 @@
+@CHARSET "UTF-8";
+
+body {
+			font-style: italic;
+		}
+		
+		form {
+			display: inline-block;
+			border: 1px solid gray;
+			padding: 1em;
+			border-radius: 1.5em;
+			
+		}
+		
+		form > div {
+			padding: 0.5em 0.3em;
+		
+		}
+		
+		[for] {
+			display: inline-block;
+			width: 150px;
+			text-align: left;
+		}
+	
+		button {
+			border-radius: 5px;
+			/* display: block;
+			margin: 0 auto; */
+		}
+		
+		button:hover {
+			font-style: italic;
+			font-weight: bold;
+		}	
+		
+		.errors {
+			color: red;
+		}
