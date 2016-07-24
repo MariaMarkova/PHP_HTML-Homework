@@ -1,0 +1,18 @@
+@CHARSET "UTF-8";
+
+body {
+	font-style: italic;
+}
+		
+form {
+	display: inline-block;
+	border: 1px solid gray;
+	padding: 1em;
+	border-radius: 1.5em;
+			
+}
+		
+form > div {
+	padding: 0.5em 0.3em;
+		
+}
